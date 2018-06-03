@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+
+        body{
+            background-color: #D0F0DE;
+        }
+     </style>
+</head>
+<body class="body">
+
+<div class="container">
+    {% block content %}
+
+    <form method="get">
+        {% csrf_token %}
+        {{ context.form}}
+    <button type="submit">Search</button>
+    </form>
+
+    {% if context.train_list %}
+    <ul>
+        {% for train in context.train_list %}
+       <table >
+                <tr>
+                     <td><label>Book id</label></td>
+                     <td>{{ train.id }}</td>
+                 </tr>
+                 <tr>
+                     <td><label>Source</label></td>
+                     <td>{{ train.source }}</td>
+                 </tr>
+                 <tr>
+                     <td><label>Destination</label></td>
+                     <td>{{ train.destination }}</td>
+                 </tr>
+                 <tr>
+                    <tr>
+                     <td><label>Departure Date</label></td>
+                     <td>{{ train.date }}</td>
+                 </tr>
+                 <tr>
+                    <tr>
+                     <td><label>Departure Time</label></td>
+                     <td>{{ train.time }}</td>
+                 </tr>
+                    <tr>
+                 <tr>
+                     <td><label>Adult Number</label></td>
+                     <td>{{ train.adult }}</td>
+                 </tr>
+                  <tr>
+                     <td><label>Children Number</label></td>
+                     <td>{{ train.child }}</td>
+                 </tr>
+                 <tr>
+                     <td><label>Total Amount</label></td>
+                     <td>{{ train.age }}</td>
+                 </tr>
+                </table>
+        <br>
+        {% endfor %}
+    </ul>
+    {#  In case  no product exists.  #}
+    {% else %}
+    <h3> No Booking Found</h3>
+    {% endif %}
+
+    {% endblock%}
+</div>
+
+</body>
+</html>

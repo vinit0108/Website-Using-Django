@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        body{
+            background-color: #E7E0DE;
+        }
+        </style>
+    </head>
+    <body>
+
+    {% if booking_list %}
+
+    <center><h1>BOOKED TICKETS </h1></center>
+    <hr>
+    <br>
+    <div>
+        {% for booking in booking_list %}
+            <div>
+                <ol>
+                    <ul>SOURCE : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ booking.source }}</ul>
+                    <ul>DESTINATION : &nbsp;&nbsp;&nbsp;{{ booking.destination }}</ul>
+                    <ul>DATE : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ booking.date }}</ul>
+                    <ul>TIME : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ booking.time }}</ul>
+                    <ul>ADULT : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ booking.adult }}</ul>
+                    <ul>CHILDREN : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ booking.child }}</ul>
+                    <ul>AGE : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ booking.age }}</ul>
+                </ol>
+                <br>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+    {#  In case  no product exists.  #}
+    {% else %}
+    <h1> NO TICKETS FOUND.</h1>
+    {% endif %}
+    </body>
+</html>

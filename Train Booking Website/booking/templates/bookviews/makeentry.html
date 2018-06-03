@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Booking</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    .body{
+        background-color: #E7E0DE;
+    }
+</style>
+</head>
+<body class="body">
+
+    <h1><h1><marquee> WELCOME TO TRAIN BOOKING CENTER </marquee></h1></h1>
+    <hr>
+    <br>
+    <br>
+    <form action="{% url 'bookviews:makeentry' %}" method="post">
+    {% csrf_token %}
+        {{form}}
+    <br>
+        <input class="btn btn-primary " type="submit" value="Submit">
+    </form>
+</body>
+</html>
