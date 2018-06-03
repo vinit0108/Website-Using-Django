@@ -1,0 +1,13 @@
+{% if employe_list %}
+
+    <h1>Employe details! </h1>
+<ul>
+    {% for employe in employe_list %}
+
+    <li> <a href="{% url 'employe:detail' employe.id %}">{{ employe.title }}</a> </li>
+    {% endfor %}
+</ul>
+{#  In case  no employe exists.  #}
+{% else %}
+<h3> No employe found.</h3>
+{% endif %}
