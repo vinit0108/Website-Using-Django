@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resturant</title>
+</head>
+<body>
+{% if rest_list%}
+
+    <h1>Resturants.......</h1>
+<ul>
+    {% for rest in rest_list %}
+
+    <li> <a href="{% url 'resturant:detailView' rest.id %}">{{ rest.name }}</a> </li>
+    {% endfor %}
+</ul>
+{#  In case  no rest exists.  #}
+{% else %}
+<h3> No Restursnt found.</h3>
+{% endif %}
+</body>
+</html>
