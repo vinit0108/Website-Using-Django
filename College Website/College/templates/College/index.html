@@ -1,0 +1,13 @@
+{% if College_list %}
+
+    <h1>College details! </h1>
+<ul>
+    {% for College in College_list %}
+
+    <li> <a href="{% url 'College:detail' College.id %}">{{ College.name }}</a> </li>
+    {% endfor %}
+</ul>
+{#  In case  no College exists.  #}
+{% else %}
+<h3> No College found.</h3>
+{% endif %}
